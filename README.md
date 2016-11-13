@@ -18,3 +18,28 @@ git clone https://github.com/mcecchi/OctoPower.git
 cd OctoPower
 sudo ./octopower <socket> <on|off>
 ```
+
+### Add commands to OctoPrint System Commands ###
+
+Add the following commands to ~/.octoprint/config.yaml in section system: actions: after already configured commands:
+
+```
+  - action: divider
+  - action: Light ON
+    command: sudo ~/OctoPower/octopower 1 on
+    confirm: ''
+    name: Light ON
+  - action: Light OFF
+    command: sudo ~/OctoPower/octopower 1 off
+    confirm: ''
+    name: Light OFF
+  - action: divider
+  - action: Printer ON
+    command: sudo ~/OctoPower/octopower 0 on
+    confirm: You are about to switch ON your 3D printer.
+    name: Printer ON
+  - action: Printer OFF
+    command: sudo ~/OctoPower/octopower 0 off
+    confirm: You are about to switch OFF your 3D printer.
+    name: Printer OFF
+```
