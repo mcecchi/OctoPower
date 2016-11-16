@@ -11,8 +11,8 @@ CC=gcc
 CXX=g++
 COBJS=octopower.o
 OBJS=$(COBJS)
-CFLAGS=-I../hidapi/hidapi -Wall -g -c `pkg-config libudev --cflags`
-LIBS=../hidapi/linux/hid.o `pkg-config libudev --libs`
+CFLAGS=-I./hidapi/hidapi -Wall -g -c `pkg-config libudev --cflags`
+LIBS=./hidapi/linux/hid.o `pkg-config libudev --libs`
 
 octopower: $(OBJS)
 	g++ -Wall -g $^ $(LIBS) -o octopower
